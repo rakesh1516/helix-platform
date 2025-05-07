@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  helix-backend:
+    build:
+      context: ./backend
+    container_name: helix-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - flask-ai
+    networks:
+      - helix-network
+
+  flask-ai:
+    build:
+      context: ./flask-ai
+    container_name: helix-flask-ai
+    ports:
+      - "5005:5005"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    networks:
+      - helix-network
+
+networks:
+  helix-network:
+    driver: bridge
