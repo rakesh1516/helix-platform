@@ -1,0 +1,18 @@
+# Java / Maven
+target/
+*.class
+*.jar
+*.log
+*.war
+*.iml
+
+# IDEs
+.idea/
+.project
+.classpath
+.settings/
+
+# Docker
+helix_pgdata/
+*.env
+.env
